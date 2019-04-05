@@ -16,17 +16,21 @@ ActiveRecord::Schema.define(version: 2019_04_02_182318) do
   enable_extension "plpgsql"
 
   create_table "babies", force: :cascade do |t|
+    t.integer "user_id"
     t.string "name"
-    t.integer "hp"
-    t.boolean "hungry"
-    t.boolean "poop"
-    t.boolean "happy"
+    t.string "feed_time"
+    t.string "diaper_time"
+    t.integer "hp", default: 50
+    t.boolean "hungry", default: false
+    t.boolean "poop", default: false
+    t.boolean "happy", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "logs", force: :cascade do |t|
     t.integer "baby_id"
+    t.string "task"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
