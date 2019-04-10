@@ -3,9 +3,10 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :users, only: %i[create]
       post '/signup', to: 'users#create'
-      get '/profile', to: 'users#show'
+
 
       post '/login', to: 'auth#create'
+      get '/profile', to: 'users#profile'
 
       resources :babies
       resources :logs

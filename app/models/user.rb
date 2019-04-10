@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_secure_password
-  validates :username, uniqueness: {case_sensitive: false}
   has_one :baby
+  has_many :logs, through: :baby
+  validates :username, uniqueness: {case_sensitive: false}
 end
