@@ -5,10 +5,14 @@ class CreateBabies < ActiveRecord::Migration[5.2]
       t.string :name
       t.string :feed_time
       t.string :diaper_time
-      t.integer :hp, :default => 50
+      t.string :hungry_time
+      t.string :dirty_time
+      t.integer :hp, :default => 80
       t.boolean :hungry, :default => false
       t.boolean :poop, :default => false
       t.boolean :happy, :default => false
+      t.boolean :initialFeed, :default => false
+      t.boolean :initialDiaper, :default => false
 
 
       t.timestamps

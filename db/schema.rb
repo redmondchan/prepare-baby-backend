@@ -20,10 +20,14 @@ ActiveRecord::Schema.define(version: 2019_04_02_182318) do
     t.string "name"
     t.string "feed_time"
     t.string "diaper_time"
-    t.integer "hp", default: 50
+    t.string "hungry_time"
+    t.string "dirty_time"
+    t.integer "hp", default: 80
     t.boolean "hungry", default: false
     t.boolean "poop", default: false
     t.boolean "happy", default: false
+    t.boolean "initialFeed", default: false
+    t.boolean "initialDiaper", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -38,6 +42,8 @@ ActiveRecord::Schema.define(version: 2019_04_02_182318) do
   create_table "users", force: :cascade do |t|
     t.string "username"
     t.string "password_digest"
+    t.string "javascript_time"
+    t.string "baby_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
