@@ -5,6 +5,8 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.string :password_digest
       t.string :javascript_time
       t.string :baby_name
+      t.integer :selffish
+      t.integer :selfless
 
       t.timestamps
     end
