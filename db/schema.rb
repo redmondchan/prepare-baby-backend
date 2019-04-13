@@ -44,6 +44,8 @@ ActiveRecord::Schema.define(version: 2019_04_02_182318) do
     t.string "password_digest"
     t.string "javascript_time"
     t.string "baby_name"
+    t.integer "selffish"
+    t.integer "selfless"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
