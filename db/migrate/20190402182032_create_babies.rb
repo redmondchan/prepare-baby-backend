@@ -8,6 +8,14 @@ class CreateBabies < ActiveRecord::Migration[5.2]
       t.string :hungry_time
       t.string :dirty_time
       t.integer :hp, :default => 80
+      t.integer :feedMissed, :default => 0
+      t.integer :diaperMissed, :default => 0
+      t.integer :feed, :default => 0
+      t.integer :forceFeed, :default => 0
+      t.integer :diaper, :default => 0
+      t.integer :forceDiaper, :default => 0
+      t.integer :feedMoney, :default => 0
+      t.integer :diaperMoney, :default => 0
       t.boolean :hungry, :default => false
       t.boolean :poop, :default => false
       t.boolean :happy, :default => false
