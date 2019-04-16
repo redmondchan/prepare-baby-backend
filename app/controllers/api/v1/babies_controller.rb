@@ -14,7 +14,9 @@ class Api::V1::BabiesController < ApplicationController
   private
 
   def baby_params
-    params.require(:baby).permit(:name, :hp, :hungry, :poop, :happy, :feed_time, :diaper_time, :hungry_time, :dirty_time, :initialFeed, :initialDiaper)
+    params.require(:baby).permit(:name, :hp, :hungry, :poop, :happy, :feed_time, :diaper_time,
+      :hungry_time, :dirty_time, :initialFeed, :initialDiaper, :feedMissed, :diaperMissed, :feed,
+      :forceFeed, :diaper, :forceDiaper, :feedMoney, :diaperMoney)
   end
 
 end
