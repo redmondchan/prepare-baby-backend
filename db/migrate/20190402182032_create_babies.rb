@@ -7,6 +7,7 @@ class CreateBabies < ActiveRecord::Migration[5.2]
       t.string :diaper_time
       t.string :hungry_time
       t.string :dirty_time
+      t.string :birthdate
       t.integer :hp, :default => 80
       t.integer :feedMissed, :default => 0
       t.integer :diaperMissed, :default => 0
