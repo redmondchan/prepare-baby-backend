@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(version: 2019_04_02_182318) do
   create_table "users", force: :cascade do |t|
     t.string "username"
     t.string "password_digest"
+    t.string "email"
     t.string "javascript_time"
     t.string "baby_name"
     t.integer "selffish"
