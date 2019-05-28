@@ -1,24 +1,17 @@
-# README
+# BabyGotchi
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Web application that simulates a small aspect of having a baby.
 
-Things you may want to cover:
+# Features
+* Keep a baby's happiness above 0 by feeding the baby and changing the diaper in a timely manner
+* View logs of when baby activity
+* Decide what to do at given scenarios
 
-* Ruby version
+# Setup
+Clone this [backend repo](https://github.com/redmondchan/prepare-baby-backend) and the [frontend repo](https://github.com/redmondchan/prepare-baby-frontend).
+Go to the root directory of the backend and run ```bundle install``` to install backend dependencies.
+Go to the root directory of the frontend and run ```npm install``` to install frontend dependencies.
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# Usage
+After installing dependencies, go to root direct of backend and run ```rails db:migrate``` and then run ```rails s``` to start the server.
+Go to the root directory of the frontend and run ```npm start``` to start using the application.
