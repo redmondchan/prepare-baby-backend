@@ -4,8 +4,8 @@ Web application that simulates a small aspect of having a baby.
 
 # Features
 * Keep a baby's happiness above 0 by feeding the baby and changing the diaper in a timely manner
-* View logs of when baby activity
-* Decide what to do at given scenarios
+* View logs of baby's activity
+* Make decisions for presented scenario's
 
 # Setup
 Clone this [backend repo](https://github.com/redmondchan/prepare-baby-backend) and the [frontend repo](https://github.com/redmondchan/prepare-baby-frontend).
