@@ -17,6 +17,8 @@ gem 'puma', '~> 3.11'
 gem 'bcrypt', '~> 3.1.7'
 gem 'rename'
 gem 'figaro'
+gem 'redis'
+gem 'resque', require: 'resque/server'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
