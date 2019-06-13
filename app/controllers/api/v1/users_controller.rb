@@ -9,7 +9,8 @@ class Api::V1::UsersController < ApplicationController
   def create
     @user = User.create(user_params)
     if @user.valid?
-      EmailSender.set(wait: 3.minutes).perform_later @user
+      UserMailer.welcome_email(@user).deliver_later
+      # EmailSender.set(wait: 3.minutes).perform_later @user
       @baby = Baby.create(name: @user.baby_name, user_id: @user.id, birthdate: @user.javascript_time, feed_time: @user.javascript_time, hungry_time: @user.javascript_time, diaper_time: @user.javascript_time, dirty_time: @user.javascript_time)
       @token = encode_token(user_id: @user.id)
       render json: {user: UserSerializer.new(@user), jwt: @token, baby: @baby}, status: :created
