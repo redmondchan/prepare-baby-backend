@@ -8,9 +8,9 @@ class Api::V1::BabiesController < ApplicationController
   def update
     @baby = Baby.find(params[:id])
     if baby_params[:feed_time]
-      CryingSender.set(wait: 1.hours).perform_later @baby
+      CryingSender.set(wait: 3.hours).perform_later @baby
     elsif baby_params[:diaper_time]
-      CryingSender.set(wait: 10.minutes).perform_later @baby
+      CryingSender.set(wait: 150.minutes).perform_later @baby
     end
     @baby.update(baby_params)
     render json: @baby
