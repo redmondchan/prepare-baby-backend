@@ -3,7 +3,7 @@ class CryingMailer < ApplicationMailer
 
   def crying_email(params)
     @baby = params
-    @url = 'http://localhost:3000'
+    @url = 'https://babygotchi.herokuapp.com/'
     mail(to: @baby.user.email, subject: 'Baby Is Crying')
   end
 
