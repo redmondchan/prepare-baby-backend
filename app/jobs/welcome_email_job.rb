@@ -1,7 +1,7 @@
 class WelcomeEmailJob < ApplicationJob
-  queue_as :default
+  @queue = :emails_queue
 
-  def perform(*args)
-    # Do something later
+  def perform(params)
+    UserMailer.welcome_email(params).deliver_later
   end
 end
