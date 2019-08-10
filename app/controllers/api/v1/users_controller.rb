@@ -3,19 +3,6 @@ class Api::V1::UsersController < ApplicationController
 
   def profile
     @baby = Baby.find_by(user_id: @user.id)
-    currentTime = Time.now
-    currentSec = currentTime.to_f
-    currentMin = currentSec/60
-    feedTime = Time.parse(@baby.feed_time)
-    feedMin = feedTime.to_f/60
-    diaperTime = Time.parse(@baby.diaper_time)
-    diaperMin = diaperTime.to_f/60
-    feedDifference = currentMin - feedMin
-    diaperDifference = currentMin - diaperMin
-    if feedDifference >= 10
-      feedMultiplier = feedDifference/10.floor
-      @baby.hp = @baby.hp - (feedMultiper * 10)
-    end 
     render json: { user: UserSerializer.new(current_user), baby: @baby }, status: :accepted
   end
 
