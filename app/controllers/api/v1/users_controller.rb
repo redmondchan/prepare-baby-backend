@@ -3,6 +3,8 @@ class Api::V1::UsersController < ApplicationController
 
   def profile
     @baby = Baby.find_by(user_id: @user.id)
+    currentTime = Time.now
+    currentSec = currentTime.to_f
     render json: { user: UserSerializer.new(current_user), baby: @baby }, status: :accepted
   end
 
