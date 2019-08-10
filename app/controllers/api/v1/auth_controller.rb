@@ -26,6 +26,18 @@ class Api::V1::AuthController < ApplicationController
           @baby.save
         end
       end
+
+      if diaperDifference >= 1
+        diaperMultiply = diaperDifference/1.floor
+        newHp = @baby.hp - (feedMultiply * 10)
+        if newHp < 0
+          @baby.hp = 0
+          @baby.save
+        else
+          @baby.hp = newHp
+          @baby.save
+        end
+      end 
       token = encode_token({user_id: @user.id})
       render json: { user: UserSerializer.new(@user), jwt: token, baby: @baby }, status: :accepted
     else
