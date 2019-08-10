@@ -5,6 +5,9 @@ class Api::V1::UsersController < ApplicationController
     @baby = Baby.find_by(user_id: @user.id)
     currentTime = Time.now
     currentSec = currentTime.to_f
+    currentMin = currentSec/60
+    feedTime = @baby.feed_time
+    diaperTime = @baby.diaper_time
     render json: { user: UserSerializer.new(current_user), baby: @baby }, status: :accepted
   end
 
