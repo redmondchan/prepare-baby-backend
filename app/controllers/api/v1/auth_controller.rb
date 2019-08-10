@@ -6,6 +6,19 @@ class Api::V1::AuthController < ApplicationController
     @user = User.find_by(username: user_login_params[:username])
     if @user && @user.authenticate(user_login_params[:password])
       @baby = Baby.find_by(user_id: @user.id)
+      currentTime = Time.now
+      currentSec = currentTime.to_f
+      currentMin = currentSec/60
+      feedTime = Time.parse(@baby.feed_time)
+      feedMin = feedTime.to_f/60
+      diaperTime = Time.parse(@baby.diaper_time)
+      diaperMin = diaperTime.to_f/60
+      feedDifference = currentMin - feedMin
+      diaperDifference = currentMin - diaperMin
+      if feedDifference >= 1
+        feedMultiply = feedDifference/1.floor
+        @baby.hp = @baby.hp - (feedMultiply * 10)
+      end
       token = encode_token({user_id: @user.id})
       render json: { user: UserSerializer.new(@user), jwt: token, baby: @baby }, status: :accepted
     else

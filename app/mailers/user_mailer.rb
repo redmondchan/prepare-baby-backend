@@ -4,8 +4,7 @@ class UserMailer < ApplicationMailer
   def welcome_email(params)
     @user = params
     @url = 'https://babygotchi.herokuapp.com/'
-    @myemail = 'redmondchan92@gmail.com'
-    mail(to: @user.email, @myemail, subject: 'Welcome to BabyGotchi')
+    mail(to: @user.email, subject: 'Welcome to BabyGotchi')
   end
 
 end
