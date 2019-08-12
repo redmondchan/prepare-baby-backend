@@ -9,9 +9,9 @@ class Api::V1::AuthController < ApplicationController
       currentTime = Time.now
       currentSec = currentTime.to_f
       currentMin = currentSec/60
-      feedTime = Time.parse(@baby.feed_time)
+      feedTime = Time.parse(@baby.hungry_time)
       feedMin = feedTime.to_f/60
-      diaperTime = Time.parse(@baby.diaper_time)
+      diaperTime = Time.parse(@baby.dirty_time)
       diaperMin = diaperTime.to_f/60
       feedDifference = currentMin - feedMin
       diaperDifference = currentMin - diaperMin
@@ -37,7 +37,7 @@ class Api::V1::AuthController < ApplicationController
           @baby.hp = newHp
           @baby.save
         end
-      end 
+      end
       token = encode_token({user_id: @user.id})
       render json: { user: UserSerializer.new(@user), jwt: token, baby: @baby }, status: :accepted
     else
